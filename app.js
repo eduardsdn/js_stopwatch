@@ -7,21 +7,23 @@ const seconds = document.querySelector(".seconds")
 const minutes = document.querySelector(".minutes")
 
 startBtn.addEventListener('click', startTimer)
+stopBtn.addEventListener('click', stopTimer)
+resetBtn.addEventListener('click', resetTimer)
 let totalSeconds = 0
 let totalMinutes = 0
 
 
 
 function startTimer(){
-    setInterval(updateTimer, 1000)
+    interval = setInterval(updateTimer, 1000)
 }
 
 function stopTimer(){
-
+    clearInterval(interval)
 }
 
 function resetTimer(){
-
+    window.location.reload()
 }
 
 function updateTimer(){
@@ -38,6 +40,5 @@ function updateTimer(){
         totalMinutesStr = totalMinutesStr.padStart(2,'0')
         minutes.textContent = totalMinutesStr
     }
-
-
+    
 }
